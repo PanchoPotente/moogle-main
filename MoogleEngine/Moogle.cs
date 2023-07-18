@@ -30,7 +30,7 @@ public static class Moogle
         {
             if(i<Documentos.Count-1)
             {
-            items[i] = new SearchItem(Documentos[Documentos.Count-1-i].Nombre+Documentos[Documentos.Count-1-i].score,
+            items[i] = new SearchItem(Documentos[Documentos.Count-1-i].Nombre,
             Documentos[Documentos.Count-1-i].CrearSnippet(Consulta.Diccionario),
             Convert.ToSingle(Documentos[Documentos.Count-1-i].score));
             }
