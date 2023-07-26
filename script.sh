@@ -11,6 +11,11 @@ exit: salir del script
 Inserte un comando: " C
 echo $C
 case $C in
+"slides"
+cd ./presentacion
+pdflatex presentacion.tex
+cd ..
+;;
 "report")
 cd ./informe
 pdflatex 121-Lázaro-Javier-Aragón-García.tex
@@ -27,6 +32,15 @@ rm 121-Lázaro-Javier-Aragón-García.pdf
 rm 121-Lázaro-Javier-Aragón-García.fls
 rm 121-Lázaro-Javier-Aragón-García.synctex.gx
 cd..
+cd ./presentacion
+rm presentacion.aux
+rm presentacion.fls
+rm presentacion.synctex.gx
+rm presentacion.log
+rm presentacion.out
+rm presentacion.toc
+rm presentacion.pdf
+cd ..
 ;;
 "show_report")
 read -p "normal or custom " S 
