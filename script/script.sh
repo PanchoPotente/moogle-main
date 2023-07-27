@@ -10,13 +10,13 @@ slides: compilar y generar el pdf del proyecto latex relativo a la presentación
 
 report: compilar y generar el pdf del proyecto latex relativo al informe
 
-show_report: ejecutar un programa para visualizar el informe (normal lo ejecuta por defecto custom permite elegir comando de ejecucion)
+show_report: ejecutar un programa para visualizar el informe (default para ejecutarlo por defecto y mod para recibir el comando de visualizacion )
 
-show_slides: ejecutar un programa que permita visualizar la presentación, si el fichero en pdf no ha sido generado debe generarse. Esta opción puede recibir puede recibir como parámetro el comando de la herramienta de visualización que se quiera utilizar, aunque debe tener una por defecto
+show_slides: ejecutar un programa que permita visualizar la presentación (default para ejecutarlo por defecto y mod para recibir el comando de visualizacion ).
 
 clean: eliminar todos los ficheros auxiliares que no forman parte del repositorio
 
-exit: salir del script
+x: salir del script
 
 Inserte un comando: " C
 echo $C
@@ -60,11 +60,11 @@ dotnet watch run --project MoogleServer
  cd ..
   ;;
   "show_slides")
- read -p "normal or custom: " S
+ read -p "default or mod: " S
 echo $S
 
 case $S in
-"normal")
+"default")
 cd ./presentacion
 if [ -e presentacion.pdf ]; then
 start presentacion.pdf
@@ -73,7 +73,7 @@ pdflatex presentacion.tex
 start presentacion.pdf
   fi
   ;;
-"custom")
+"mod")
 cd ./presentacion
 if [ -e presentacion.pdf ]; then
 read -p "ingrese su comando de ejecucion de pdf " F
@@ -92,11 +92,11 @@ echo "Comando invalido"
 esac
 ;;
 "show_report")
-read -p "normal or custom: " S
+read -p "default or mod: " S
 echo $S
 
 case $S in
-"normal")
+"default")
 cd ./informe
 if [ -e 121-Lázaro-Javier-Aragón-García.pdf ]; then
 start 121-Lázaro-Javier-Aragón-García.pdf
@@ -105,7 +105,7 @@ pdflatex 121-Lázaro-Javier-Aragón-García.tex
 start 121-Lázaro-Javier-Aragón-García.pdf
 fi
 ;;
-"custom")
+"mod")
 cd ./informe
 if [ -e 121-Lázaro-Javier-Aragón-García.pdf ]; then
 read -p "ingrese su comando de ejecucion de pdf " F
@@ -123,7 +123,7 @@ echo "Comando invalido"
 ;;
 esac
 ;;
-"exit")
+"x")
 echo "Saliendo ... "
 break
              
